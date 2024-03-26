@@ -1,0 +1,25 @@
+<html>
+<head>
+    <title>{% block title %}{% endblock %} - qrt</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.11"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // primary: '#3490dc',
+                        // secondary: '#ffed4a',
+                        // danger: '#e3342f',
+                    },
+                },
+            },
+        };
+
+    </script>
+    <body>
+        {% block content %}{% endblock %}
+    </body>
+</head>
