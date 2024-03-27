@@ -14,3 +14,7 @@ def dev() -> None:
 def prod() -> None:
     app = create_app(mode="prod")
     asyncio.run(serve(app, Config()))
+
+
+if __name__ == "__main__":
+    dev()
