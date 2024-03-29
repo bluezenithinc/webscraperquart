@@ -71,7 +71,10 @@ TAILWIND_CLASSES = {
     "h6": "text-base font-bold mb-4 text-gray-900 dark:text-gray-100",
     "p": "text-base font-normal mb-4 break-words text-gray-900 dark:text-gray-100",
     "div": "text-base font-normal mb-4 text-gray-900 dark:text-gray-100",
-    "a": "text-blue-600 underline dark:text-blue-400",
+    "a": {
+        True: "text-blue-600 underline dark:text-blue-400",
+        False: "text-gray-900 dark:text-gray-100",
+    },
     "ul": "space-y-1 list-disc list-inside mb-4",
     "ol": "space-y-1 list-decimal list-inside mb-4",
     "li": "ml-4 mb-1 text-gray-900 dark:text-gray-100",
@@ -95,8 +98,10 @@ TAILWIND_CLASSES = {
     "hr": "border-gray-300 border-t-2 my-4 dark:border-gray-700",
 }
 
-DEFAULT_PARSER_OPTIONS = {
+DEFAULT_SCRAPER_OPTIONS = {
     "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3",
     "prefferedLanguage": "en-US,en;q=0.9",
     "proxy": "",
+    "preserveLinks": True,
+    "includeImages": False,
 }

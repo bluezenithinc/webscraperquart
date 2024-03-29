@@ -2,26 +2,38 @@
     <div class="w-1/4 flex flex-row justify-start items-center ms-10">
         <a
             href="{{ url_for('site.index') }}"
+            hx-get="{{ url_for('site.index') }}"
+            hx-trigger="click"
+            hx-target="body"
             class="text-white font-bold text-2xl px-4"
         ><i class="fa-solid fa-code me-1"></i> QRT</a>
     </div>
-    <div class="w-1/2 flex flex-row gap-5 justify-center items-center text-white text-lg">
+    <div class="w-1/2 flex flex-row gap-5 justify-center items-center text-white text-lg font-mono">
         <div class="rounded {% if tab == 'Home'%} border-b-2 border-slate-200 {% endif %} hover:border-b-2 hover:border-slate-500">
             <a
                 href="{{ url_for('site.index') }}"
-                class="block my-1 mx-4"
+                hx-get="{{ url_for('site.index') }}"
+                hx-trigger="click"
+                hx-target="body"
+                class="block mx-4"
             >Home</a>
         </div>
-        <div class="rounded {% if tab == 'Parser'%} border-b-2 border-slate-200 {% endif %} hover:border-b-2 hover:border-slate-500">
+        <div class="rounded {% if tab == 'Scraper'%} border-b-2 border-slate-200 {% endif %} hover:border-b-2 hover:border-slate-500">
             <a
-                href="{{ url_for('parser.parser') }}"
-                class="block my-1 mx-4"
-            >Parser</a>
+                href="{{ url_for('scraper.scraper') }}"
+                hx-get="{{ url_for('scraper.scraper') }}"
+                hx-trigger="click"
+                hx-target="body"
+                class="block mx-4"
+            >Scrape</a>
         </div>
         <div class="rounded {% if tab == 'About'%} border-b-2 border-slate-200 {% endif %} hover:border-b-2 hover:border-slate-500">
             <a
                 href="{{ url_for('site.about') }}"
-                class="block my-1 mx-4"
+                hx-get="{{ url_for('site.about') }}"
+                hx-trigger="click"
+                hx-target="body"
+                class="block mx-4"
             >About</a>
         </div>
     </div>
@@ -39,7 +51,30 @@
             class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
         >
             <p>Toggle Theme</p>
-            <div class="tooltip-arrow" data-popper-arrow></div>
         </div>
     </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+                document.getElementById('theme').innerHTML = '<i class="fas fa-moon text-white"></i>';
+            } else {
+                document.documentElement.classList.remove('dark');
+                document.getElementById('theme').innerHTML = '<i class="fas fa-sun text-yellow-500"></i>';
+            };
+        });
+        
+        function toggleTheme() {
+            if (localStorage.theme !== 'dark') {
+                document.documentElement.classList.add('dark');
+                localStorage.theme = 'dark';
+                document.getElementById('theme').innerHTML = '<i class="fas fa-moon text-white"></i>';
+            } else {
+                document.documentElement.classList.remove('dark');
+                localStorage.theme = 'light';
+                document.getElementById('theme').innerHTML = '<i class="fas fa-sun text-yellow-500"></i>';
+            }
+        };
+    </script>
 </div>

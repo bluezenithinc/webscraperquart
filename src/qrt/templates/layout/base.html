@@ -11,44 +11,16 @@
     <script>
         tailwind.config = {
             darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        // primary: '#3490dc',
-                        // secondary: '#ffed4a',
-                        // danger: '#e3342f',
-                    },
-                },
-            },
+            theme: { extend: {}, }
         };
+    </script>
+    <script>
+        htmx.onLoad(function(content) { initFlowbite(); });
     </script>
     <body class="bg-slate-100 text-gray-900 dark:bg-slate-900 dark:text-gray-100">
         {% block content %}
 
         {% endblock %}
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                    document.documentElement.classList.add('dark');
-                    document.getElementById('theme').innerHTML = '<i class="fas fa-moon text-white"></i>';
-                } else {
-                    document.documentElement.classList.remove('dark');
-                    document.getElementById('theme').innerHTML = '<i class="fas fa-sun text-yellow-500"></i>';
-                };
-            });
-            
-            function toggleTheme() {
-                if (localStorage.theme !== 'dark') {
-                    document.documentElement.classList.add('dark');
-                    localStorage.theme = 'dark';
-                    document.getElementById('theme').innerHTML = '<i class="fas fa-moon text-white"></i>';
-                } else {
-                    document.documentElement.classList.remove('dark');
-                    localStorage.theme = 'light';
-                    document.getElementById('theme').innerHTML = '<i class="fas fa-sun text-yellow-500"></i>';
-                }
-            };
-        </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     </body>
 </head>
