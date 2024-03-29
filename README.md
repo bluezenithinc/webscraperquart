@@ -12,6 +12,10 @@ Install dependencies with poetry:
 
 ## Running and development  
 
+> Note: poetry does not work well with quart's hot reload mechanism. If you want to run dev environment with hot reload, use:
+
+    python .\src\qrt\serve.py
+
 Run project using poetry scripts:
 
     poetry run dev

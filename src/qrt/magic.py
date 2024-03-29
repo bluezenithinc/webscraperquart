@@ -16,5 +16,5 @@ def register_blueprints(app: App):
         for attribute_name in dir(module):
             attribute = getattr(module, attribute_name)
             if isinstance(attribute, Blueprint):
-                app.logger.info(f"Registering blueprint: {attribute_name}")
+                app.logger.info(f"Registering blueprint: {bundle}")
                 app.register_blueprint(attribute)

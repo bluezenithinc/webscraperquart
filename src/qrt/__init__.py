@@ -1,4 +1,6 @@
-from quart import Quart
+from uuid import uuid4
+
+from quart import Quart, session
 from dotenv import load_dotenv
 
 from qrt.magic import register_blueprints
@@ -16,6 +18,8 @@ def create_app(mode: Mode) -> App:
     """
     app = Quart(__name__)
     app.config.from_object(f"qrt.config.{mode.capitalize()}Config")
+
     init_extensions(app)
     register_blueprints(app)
+
     return app

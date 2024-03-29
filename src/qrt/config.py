@@ -13,6 +13,7 @@ class BaseConfig:
     SECRET_KEY = os.getenv("SECRET_KEY", "my_precious")
     BUNDLES = [
         "qrt.site",
+        "qrt.parser",
     ]
     EXTENSIONS = [
         "mongo",
