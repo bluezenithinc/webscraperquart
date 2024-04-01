@@ -74,7 +74,7 @@ class ScrapingOptions:
                 if hasattr(self, camel_to_snake(key))
                 else None
             )
-        
+
         return self
 
     def serialize(self) -> dict:
@@ -112,10 +112,10 @@ def externalize_href(url: str, href: str) -> str:
     """
     if href.startswith("/"):
         return f"{get_url_base(url)}{href}"
-    
+
     if href.startswith("#"):
         return f"{url}{href}"
-    
+
     return href
 
 
