@@ -106,7 +106,7 @@ class ScraperView(MethodView):
                     tag["target"] = "_blank"
                     tag["rel"] = "noopener noreferrer"
             else:
-                tagх["class"] = TAILWIND_CLASSES.get(tag.name, "")
+                tag["class"] = TAILWIND_CLASSES.get(tag.name, "")
 
         markdowner = HTML2Text(bodywidth=0)
         markdowner.ignore_tables = True
