@@ -22,4 +22,8 @@ def create_app(mode: Mode) -> App:
     init_extensions(app)
     register_blueprints(app)
 
+    @app.before_request
+    async def permanent_session():
+        session.permanent = True
+
     return app

@@ -1,16 +1,18 @@
 ELEMENTS_TO_IGNORE = [
-    # elements that are not a part of the content
+    ############################################################
+    #######   head elements
     "style",
     "script",
-    "head",
-    "title",
+    "link",
     "meta",
+    ############################################################
+    #######   elements that are not a part of the content that we want to scrape
     "header",
     "footer",
     "nav",
     "aside",
-    # media tags
-    "img",
+    ############################################################
+    #######   media tags
     "video",
     "audio",
     "iframe",
@@ -20,7 +22,8 @@ ELEMENTS_TO_IGNORE = [
     "picture",
     "source",
     "track",
-    # form elements
+    ############################################################
+    #######   form elements
     "form",
     "input",
     "textarea",
@@ -31,16 +34,14 @@ ELEMENTS_TO_IGNORE = [
     "label",
     "fieldset",
     "legend",
-    "datalist",
-    "output",
-    "progress",
-    "meter",
-    # invisible elements
+    ############################################################
+    #######   invisible elements
     ".hidden",
     ".hide",
     ".invisible",
     ".sr-only",
-    # elements that are divs but are actually responsible for the different role
+    ############################################################
+    #######   elements that are divs but are actually responsible for the different role
     ".nav",
     ".navbar",
     ".sidebar",
@@ -51,14 +52,16 @@ ELEMENTS_TO_IGNORE = [
     ".footer",
     ".breadcrumbs",
     ".pagination",
-    # cookies
+    ############################################################
+    #######   cookies
     ".cookie",
     ".cookies",
     ".cookie-banner",
     ".cookie-notice",
     "#cookie",
     "#cookies",
-    # other special cases
+    ############################################################
+    #######   other special cases
     ".browser-compat",
 ]
 
@@ -71,6 +74,7 @@ TAILWIND_CLASSES = {
     "h6": "text-base font-bold mb-4 text-gray-900 dark:text-gray-100",
     "p": "text-base font-normal mb-4 break-words text-gray-900 dark:text-gray-100",
     "div": "text-base font-normal mb-4 text-gray-900 dark:text-gray-100",
+    # special case for preserve_links option
     "a": {
         True: "text-blue-600 underline dark:text-blue-400",
         False: "text-gray-900 dark:text-gray-100",
@@ -98,9 +102,9 @@ TAILWIND_CLASSES = {
     "hr": "border-gray-300 border-t-2 my-4 dark:border-gray-700",
 }
 
-DEFAULT_SCRAPER_OPTIONS = {
+DEFAULT_SCRAPING_OPTIONS = {
     "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3",
-    "prefferedLanguage": "en-US,en;q=0.9",
+    "preferredLanguage": "en-US,en;q=0.9",
     "proxy": "",
     "preserveLinks": True,
     "includeImages": False,

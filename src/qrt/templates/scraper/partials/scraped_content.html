@@ -1,8 +1,8 @@
-{% if extra.menu %}
+{% if (extra|default({})).menu %}
     <div class="flex flex-row justify-between items-center">
         <div class="w-1/6 mb-4"><i class="fa-solid fa-code me-1"></i></div>
         <h2 class="w-4/6 grow text-xl font-semibold text-center mb-4">
-            {{ title }}
+            {{ title|default('Scraped Content') }}
         </h2>
 
         <div class="w-1/6 flex flex-row items-center justify-end mb-4 -mt-3">
@@ -28,9 +28,9 @@
     </div><hr>
 {% else %}
     <h2 class="text-xl font-semibold text-center mb-4">
-        {{ title }}
+        {{ title|default('Scraped Content') }}
     </h2><hr>
 {% endif %}
-<p class="mt-4 {% if error %} text-red-600 text-center{% endif %}">
-    {{ content|safe }}
+<p class="mt-4 {% if error %}text-red-600 text-center{% endif %} {% if not content %}text-center{% endif %}">
+    {{ content|default('The scraped content will be displayed here.')|safe }}
 </p>

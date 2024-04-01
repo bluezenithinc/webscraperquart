@@ -3,6 +3,7 @@
         <a
             href="{{ url_for('site.index') }}"
             hx-get="{{ url_for('site.index') }}"
+            hx-push-url="{{ url_for('site.index') }}"
             hx-trigger="click"
             hx-target="body"
             class="text-white font-bold text-2xl px-4"
@@ -13,6 +14,7 @@
             <a
                 href="{{ url_for('site.index') }}"
                 hx-get="{{ url_for('site.index') }}"
+                hx-push-url="{{ url_for('site.index') }}"
                 hx-trigger="click"
                 hx-target="body"
                 class="block mx-4"
@@ -22,6 +24,7 @@
             <a
                 href="{{ url_for('scraper.scraper') }}"
                 hx-get="{{ url_for('scraper.scraper') }}"
+                hx-push-url="{{ url_for('scraper.scraper') }}"
                 hx-trigger="click"
                 hx-target="body"
                 class="block mx-4"
@@ -31,6 +34,7 @@
             <a
                 href="{{ url_for('site.about') }}"
                 hx-get="{{ url_for('site.about') }}"
+                hx-push-url="{{ url_for('site.about') }}"
                 hx-trigger="click"
                 hx-target="body"
                 class="block mx-4"

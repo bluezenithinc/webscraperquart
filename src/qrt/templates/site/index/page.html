@@ -14,6 +14,7 @@
                     <a
                         href="{{ url_for('scraper.scraper') }}"
                         hx-get="{{ url_for('scraper.scraper') }}"
+                        hx-push-url="{{ url_for('scraper.scraper') }}"
                         hx-trigger="click"
                         hx-target="body"
                         class="bg-blue-500 hover:bg-blue-700 text-white text-3xl font-bold py-3 px-[100px] rounded dark:bg-blue-700 dark:text-white dark:hover:bg-blue-900"
