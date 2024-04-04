@@ -89,4 +89,4 @@ jobs:
                     app-name: 'webscraperquart'
                     slot-name: 'Production'
                     package: '.'
-                    startup-command: 'python src/qrt/serve.py prod'
+                    startup-command: 'poetry run prod'
