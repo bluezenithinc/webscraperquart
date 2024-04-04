@@ -42,6 +42,7 @@ jobs:
 
             -   name: Run tests
                 run: |
+                    cd /home/runner/work/qrt/qrt
                     poetry run test
 
             -   name: Zip artifact for deployment
@@ -88,4 +89,4 @@ jobs:
                     app-name: 'webscraperquart'
                     slot-name: 'Production'
                     package: '.'
-                    startup-command: 'poetry run prod'
+                    startup-command: 'python src/qrt/serve.py prod'
