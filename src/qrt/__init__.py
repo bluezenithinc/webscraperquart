@@ -1,15 +1,10 @@
-from uuid import uuid4
-
 from quart import Quart, session
-from dotenv import load_dotenv
 
 from qrt.magic import register_blueprints
 from qrt.extensions import init_extensions
 
 # types
 from .types import Mode, App
-
-load_dotenv()
 
 
 def create_app(mode: Mode) -> App:
