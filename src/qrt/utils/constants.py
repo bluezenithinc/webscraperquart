@@ -108,4 +108,5 @@ DEFAULT_SCRAPING_OPTIONS = {
     "proxy": "",
     "preserveLinks": True,
     "includeImages": False,
+    "ignoreCssSelectors": [],
 }

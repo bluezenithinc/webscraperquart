@@ -1,40 +1,26 @@
 <div class="flex flex-col items-center justify-start">
     <h5 class="w-full flex flex-row items-center justify-between text-xl mb-6">
-        <button
-            type="button"
-            data-drawer-hide="options-drawer"
-            class="w-[50px] bg-transparent hover:bg-gray-300 text-gray-700 font-semibold p-1 rounded dark:bg-transparent dark:text-white dark:hover:bg-gray-600 dark:hover:text-white"
-        ><i class="fa-solid fa-times"></i></button>
+        <button type="button" data-drawer-hide="options-drawer"
+            class="w-[50px] bg-transparent hover:bg-gray-300 text-gray-700 font-semibold p-1 rounded dark:bg-transparent dark:text-white dark:hover:bg-gray-600 dark:hover:text-white"><i
+                class="fa-solid fa-times"></i></button>
 
         <p class="font-semibold">Scraping Options <i class="fa-solid fa-gears ms-1"></i></p>
-        
-        <p
-            class="w-[50px] font-semibold p-1 rounded"
-        ></p>
+
+        <p class="w-[50px] font-semibold p-1 rounded"></p>
     </h5>
 </div>
 
-<form
-    class="flex flex-col items-start justify-start"
-    style="display: flex;"
-    hx-patch="{{ url_for('scraper.options') }}"
-    hx-trigger="submit"
-    hx-target="#options-drawer"
-    hx-swap="innerHTML"
-    hx-ext="json-enc"
->
+<form class="flex flex-col items-start justify-start" style="display: flex;" hx-patch="{{ url_for('scraper.options') }}"
+    hx-trigger="submit" hx-target="#options-drawer" hx-swap="innerHTML" hx-ext="json-enc">
     <div class="w-full mb-4">
         <label class="block text-sm font-semibold pb-2">Content</label>
-        
+
         <label class="flex items-center cursor-pointer">
-            <input
-                type="checkbox"
-                id="preserveLinks"
-                name="preserveLinks"
-                class="sr-only peer"
-                {% if options.preserve_links %}checked{% endif %}
-            >
-            <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+            <input type="checkbox" id="preserveLinks" name="preserveLinks" class="sr-only peer" {% if
+                options.preserve_links %}checked{% endif %}>
+            <div
+                class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
+            </div>
             <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Preserve Links</span>
         </label>
 
@@ -43,14 +29,11 @@
         </p>
 
         <label class="flex items-center cursor-pointer">
-            <input
-                type="checkbox"
-                id="includeImages"
-                name="includeImages"
-                class="sr-only peer"
-                {% if options.include_images %}checked{% endif %}
-            >
-            <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+            <input type="checkbox" id="includeImages" name="includeImages" class="sr-only peer" {% if
+                options.include_images %}checked{% endif %}>
+            <div
+                class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
+            </div>
             <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Include Images</span>
         </label>
 
@@ -61,40 +44,32 @@
 
     <div class="w-full mb-5">
         <label for="proxy" class="block text-sm font-semibold pb-2">Proxy</label>
-        <input
-            id="proxy"
-            name="proxy"
+        <input id="proxy" name="proxy"
             class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5 focus:outline-none focus:ring-blue-500 focus:border-blue-500 placeholder:italic dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="http://username:password@proxy:port"
-            value="{{ options.proxy|default('') }}"
-        >
+            placeholder="http://username:password@proxy:port" value="{{ options.proxy|default('') }}">
 
         <p class="text-xs text-gray-400 dark:text-gray-500">
-            The proxy server acts as an intermediary between a client and a server. It makes requests to the internet on behalf of the client, providing anonymity and security.
+            The proxy server acts as an intermediary between a client and a server. It makes requests to the internet on
+            behalf of the client, providing anonymity and security.
         </p>
     </div>
 
     <div class="w-full mb-5">
         <div class="flex flex-row justify-between items-center pb-2">
             <label for="userAgent" class="block text-sm font-semibold">User Agent</label>
-            <button
-                type="button"
+            <button type="button"
                 class="ml-2 bg-transparent hover:bg-gray-200 text-xs text-grey-700 font-semibold py-1 px-3 rounded dark:bg-transparent dark:text-white dark:hover:bg-gray-600 dark:hover:text-white"
-                onclick="document.getElementById('userAgent').value = navigator.userAgent;"
-            >Set to this browser</button>
+                onclick="document.getElementById('userAgent').value = navigator.userAgent;">Set to this browser</button>
         </div>
-        <textarea
-            rows="3"
-            id="userAgent"
-            name="userAgent"
+        <textarea rows="3" id="userAgent" name="userAgent"
             class="w-full bg-gray-50 font-mono border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5 focus:outline-none focus:ring-blue-500 focus:border-blue-500 placeholder:italic dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
-        >{{ options.user_agent }}</textarea>
+            placeholder="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3">{{ options.user_agent }}</textarea>
 
         <p class="text-xs text-gray-400 dark:text-gray-500">
-            The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent"
-            target="_blank" class="text-blue-400 hover:text-blue-500 hover:underline dark:text-blue-400 dark:hover:text-blue-600">User-Agent</a>
-            request header contains a characteristic string that allows the network protocol peers to identify the application type, 
+            The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent" target="_blank"
+                class="text-blue-400 hover:text-blue-500 hover:underline dark:text-blue-400 dark:hover:text-blue-600">User-Agent</a>
+            request header contains a characteristic string that allows the network protocol peers to identify the
+            application type,
             operating system, software vendor, or software version of the requesting software user agent.
         </p>
     </div>
@@ -102,32 +77,42 @@
     <div class="w-full mb-5">
         <div class="flex flex-row justify-between items-center pb-2">
             <label for="preferredLanguage" class="block text-sm font-semibold">Preferred language</label>
-            <button
-                type="button"
+            <button type="button"
                 class="ml-2 bg-transparent hover:bg-gray-200 text-xs text-grey-700 font-semibold py-1 px-3 rounded dark:bg-transparent dark:text-white dark:hover:bg-gray-600 dark:hover:text-white"
-                onclick="document.getElementById('preferredLanguage').value = navigator.language;"
-            >Set to this browser's locale</button>
+                onclick="document.getElementById('preferredLanguage').value = navigator.language;">Set to this browser's
+                locale</button>
         </div>
-        <input
-            id="preferredLanguage"
-            name="preferredLanguage"
+        <input id="preferredLanguage" name="preferredLanguage"
             class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5 focus:outline-none focus:ring-blue-500 focus:border-blue-500 placeholder:italic dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="en-US,en;q=0.9"
-            value="{{ options.preferred_language }}"
-        >
+            placeholder="en-US,en;q=0.9" value="{{ options.preferred_language }}">
 
         <p class="text-xs text-gray-400 dark:text-gray-500">
-            The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Language" 
-            target="_blank" class="text-blue-400 hover:text-blue-500 hover:underline dark:text-blue-400 dark:hover:text-blue-600">Accept-Language</a>
-            request HTTP header advertises which languages the client is able to understand, and which locale variant is preferred.
+            The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Language" target="_blank"
+                class="text-blue-400 hover:text-blue-500 hover:underline dark:text-blue-400 dark:hover:text-blue-600">Accept-Language</a>
+            request HTTP header advertises which languages the client is able to understand, and which locale variant is
+            preferred.
         </p>
     </div>
 
     <div class="w-full mb-5">
-        <button
-            type="submit"
-            data-drawer-hide="options-drawer"
-            class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded dark:bg-blue-700 dark:text-white dark:hover:bg-blue-900"
-        >Save <i class="fa-solid fa-floppy-disk ms-1"></i></button>
+        <div class="flex flex-row justify-between items-center pb-2">
+            <label for="ignoreCssSelectors" class="block text-sm font-semibold">Ignore CSS Selectors</label>
+            <button type="button"
+                class="ml-2 bg-transparent hover:bg-gray-200 text-xs text-grey-700 font-semibold py-1 px-3 rounded dark:bg-transparent dark:text-white dark:hover:bg-gray-600 dark:hover:text-white"
+                onclick="document.getElementById('ignoreCssSelectors').value = '';">Clear</button>
+        </div>
+        <textarea rows="3" id="ignoreCssSelectors" name="ignoreCssSelectors"
+            class="w-full bg-gray-50 font-mono border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5 focus:outline-none focus:ring-blue-500 focus:border-blue-500 placeholder:italic dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder=".do-not-print\n.cookie-banner">{{ options.ignore_css_selectors|join('\n') }}</textarea>
+
+        <p class="text-xs text-gray-400 dark:text-gray-500">
+            Set of CSS selectors. The scraper will ignore any element that matches these selectors.
+        </p>
+    </div>
+
+    <div class="w-full mb-5">
+        <button type="submit" data-drawer-hide="options-drawer"
+            class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded dark:bg-blue-700 dark:text-white dark:hover:bg-blue-900">Save
+            <i class="fa-solid fa-floppy-disk ms-1"></i></button>
     </div>
 </form>

@@ -46,6 +46,9 @@ class TailwindClassesManager:
         <a href="https://example.com/page" target="_blank" rel="noopener noreferrer">Page</a>
         """
         href = element.get("href")
+        if not href:
+            return {}
+
         return {
             "href": externalize_href(href, url),
             "target": "_blank",

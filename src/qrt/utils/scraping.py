@@ -25,6 +25,7 @@ class ScrapingOptions:
         "proxy",
         "preserve_links",
         "include_images",
+        "ignore_css_selectors",
     ]
 
     def __init__(self, session: SessionMixin = None, **kwargs: dict) -> None:
@@ -33,6 +34,7 @@ class ScrapingOptions:
         self.proxy: str = ""
         self.preserve_links: bool = False
         self.include_images: bool = False
+        self.ignore_css_selectors: list = []
 
         if session:
             self.load_from_session(session)
@@ -96,7 +98,7 @@ def get_url_base(url: str) -> str:
     return f"{urlparse(url).scheme}://{urlparse(url).netloc}"
 
 
-def externalize_href(url: str, href: str) -> str:
+def externalize_href(href: str, url: str) -> str:
     """
     Externalizes the href attribute of an anchor tag.
     If the href is a relative path, it is converted to an absolute path.

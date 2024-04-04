@@ -1,36 +1,56 @@
 {% if (extra|default({})).menu %}
-    <div class="flex flex-row justify-between items-center">
-        <div class="w-1/6 mb-4"><i class="fa-solid fa-code me-1"></i></div>
-        <h2 class="w-4/6 grow text-xl font-semibold text-center mb-4">
-            {{ title|default('Scraped Content') }}
-        </h2>
-
-        <div class="w-1/6 flex flex-row items-center justify-end mb-4 -mt-3">
-            {% if extra.menu.clear %}
-            <button
-                hx-delete="{{ url_for('scraper.scraper') }}"
-                hx-trigger="click"
-                hx-target="#result"
-                data-tooltip-target="clear-tooltip"
-                class="p-3 rounded-full bg-transparent text-red-600 hover:text-white hover:bg-red-600 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-800 cursor-pointer"
-            >
-                <i class="fas fa-trash-alt"></i>
-                <div
-                    id="clear-tooltip"
-                    class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
-                >
-                    <p>Clear Data</p>
-                </div>
-            </button>
-            
-            {% endif %}
-        </div>
-    </div><hr>
-{% else %}
-    <h2 class="text-xl font-semibold text-center mb-4">
+<div class="flex flex-row justify-between items-center">
+    <div class="w-1/6 mb-4"><i class="fa-solid fa-code me-1"></i></div>
+    <h2 class="w-4/6 grow text-xl font-semibold text-center mb-4">
         {{ title|default('Scraped Content') }}
-    </h2><hr>
+    </h2>
+
+    <div class="w-1/6 flex flex-row items-center justify-end mb-4 -mt-3">
+        {% if extra.menu.download_markdown %}
+        <button onclick="downloadAsMarkdown(this, `{{ extra.data.domain }}.md`)"
+            data-markdown="{{ extra.data.markdown }}" data-tooltip-target="download-markdown-tooltip"
+            class="p-3 rounded-full bg-transparent text-yellow-600 hover:text-white hover:bg-yellow-600 dark:text-yellow-500 dark:hover:text-white dark:hover:bg-yellow-800 cursor-pointer">
+            <i class="fas fa-download"></i>
+            <div id="download-markdown-tooltip"
+                class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                <p>Download As Markdown</p>
+            </div>
+        </button>
+        {% endif %}
+
+        {% if extra.menu.clear %}
+        <button hx-delete="{{ url_for('scraper.scraper') }}" hx-trigger="click" hx-target="#result"
+            data-tooltip-target="clear-tooltip"
+            class="p-3 rounded-full bg-transparent text-red-600 hover:text-white hover:bg-red-600 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-800 cursor-pointer">
+            <i class="fas fa-trash-alt"></i>
+            <div id="clear-tooltip"
+                class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                <p>Clear Data</p>
+            </div>
+        </button>
+        {% endif %}
+    </div>
+</div>
+<hr>
+{% else %}
+<h2 class="text-xl font-semibold text-center mb-4">
+    {{ title|default('Scraped Content') }}
+</h2>
+<hr>
 {% endif %}
-<p class="mt-4 {% if error %}text-red-600 text-center{% endif %} {% if not content %}text-center{% endif %}">
+<p class="mt-4 {% if extra.error %}text-red-600 text-center{% endif %} {% if not content %}text-center{% endif %}">
     {{ content|default('The scraped content will be displayed here.')|safe }}
 </p>
+<script>
+    function downloadAsMarkdown(button, filename) {
+        const content = button.getAttribute('data-markdown');
+        const blob = new Blob([content], { type: 'text/markdown' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    };
+</script>
