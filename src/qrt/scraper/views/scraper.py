@@ -56,7 +56,7 @@ class ScraperView(MethodView):
                 extra={"menu": {"clear": True}},
                 error=True,
             )
-
+    
         except ServerTimeoutError:
             return await render_template(
                 "scraper/partials/scraped_content.html",

@@ -29,16 +29,20 @@ jobs:
                     virtualenvs-create: true
                     virtualenvs-in-project: true
 
-            -   name: Set up cache
-                uses: actions/cache@v2
-                id: cache-poetry
+            -   name: Load cached venv
+                uses: actions/cache@v3
+                id: cache-poetry-dependencies
                 with:
                     path: .venv
-                    key: ${{ runner.os }}-poetry-${{ hashFiles('**/poetry.lock') }}
+                    key: ${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
 
             -   name: Install dependencies
-                run: poetry install
-                if: steps.cache-poetry.outputs.cache-hit != 'true'
+                if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
+                run: poetry install --no-interaction --no-root
+
+            -   name: Run tests
+                run: |
+                    poetry run test
 
             -   name: Zip artifact for deployment
                 run: zip release.zip ./* -r
