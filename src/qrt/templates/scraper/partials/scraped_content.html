@@ -6,11 +6,35 @@
     </h2>
 
     <div class="w-1/6 flex flex-row items-center justify-end mb-4 -mt-3">
+        {% if extra.menu.download_clean_html %}
+        <button onclick="download(this, `{{ extra.data.domain }}.html`)"
+            data-download="{{ extra.data.clean_html }}" data-tooltip-target="download-clean-html-tooltip"
+            class="p-3 rounded-full bg-transparent text-emerald-600 hover:text-white hover:bg-emerald-600 dark:text-emerald-500 dark:hover:text-white dark:hover:bg-emerald-800 cursor-pointer">
+            <i class="fa-brands fa-html5"></i>
+            <div id="download-clean-html-tooltip"
+                class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                <p>Download As HTML</p>
+            </div>
+        </button>
+        {% endif %}
+
+        {% if extra.menu.download_tailwind_html %}
+        <button onclick="download(this, `{{ extra.data.domain }}.html`)"
+            data-download="{{ extra.data.tailwind_html }}" data-tooltip-target="download-tailwind-html-tooltip"
+            class="p-3 rounded-full bg-transparent text-lime-600 hover:text-white hover:bg-lime-600 dark:text-lime-500 dark:hover:text-white dark:hover:bg-lime-800 cursor-pointer">
+            <i class="fa-solid fa-file-code"></i>
+            <div id="download-tailwind-html-tooltip"
+                class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                <p>Download As HTML with Tailwind</p>
+            </div>
+        </button>
+        {% endif %}
+
         {% if extra.menu.download_markdown %}
-        <button onclick="downloadAsMarkdown(this, `{{ extra.data.domain }}.md`)"
-            data-markdown="{{ extra.data.markdown }}" data-tooltip-target="download-markdown-tooltip"
+        <button onclick="download(this, `{{ extra.data.domain }}.txt`)"
+            data-download="{{ extra.data.markdown }}" data-tooltip-target="download-markdown-tooltip"
             class="p-3 rounded-full bg-transparent text-yellow-600 hover:text-white hover:bg-yellow-600 dark:text-yellow-500 dark:hover:text-white dark:hover:bg-yellow-800 cursor-pointer">
-            <i class="fas fa-download"></i>
+            <i class="fa-brands fa-markdown"></i>
             <div id="download-markdown-tooltip"
                 class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
                 <p>Download As Markdown</p>
@@ -42,9 +66,9 @@
     {{ content|default('The scraped content will be displayed here.')|safe }}
 </p>
 <script>
-    function downloadAsMarkdown(button, filename) {
-        const content = button.getAttribute('data-markdown');
-        const blob = new Blob([content], { type: 'text/markdown' });
+    function download(button, filename, filetype) {
+        const content = button.getAttribute('data-download');
+        const blob = new Blob([content], { type: filetype });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
