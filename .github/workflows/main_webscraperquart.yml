@@ -42,7 +42,7 @@ jobs:
 
             -   name: Run tests
                 run: |
-                    cd /home/runner/work/qrt/qrt
+                    cd /home/runner/work/webscraperquart/webscraperquart
                     poetry run test
 
             -   name: Zip artifact for deployment
