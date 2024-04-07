@@ -34,10 +34,10 @@ jobs:
                 id: cache-poetry-dependencies
                 with:
                     path: .venv
-                    key: ${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
+                    key: ${{ runner.os }}-3.12-${{ hashFiles('**/poetry.lock') }}
 
             -   name: Install dependencies
-                if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
+                if: steps.cache-poetry-dependencies.outputs.cache-hit != 'true'
                 run: poetry install --no-interaction --no-root
 
             -   name: Run tests
