@@ -52,6 +52,13 @@ ELEMENTS_TO_IGNORE = [
     ".footer",
     ".breadcrumbs",
     ".pagination",
+    ".top-nav",
+    ".navigation",
+    ".nav-menu",
+    ".menu",
+    "#nav",
+    "#navbar",
+    "#navigation",
     ############################################################
     #######   cookies
     ".cookie",
@@ -63,29 +70,32 @@ ELEMENTS_TO_IGNORE = [
     ############################################################
     #######   other special cases
     ".browser-compat",
+    ".jw8mI",
+    "[role='navigation']",
+    "[role='search']",
 ]
 
 TAILWIND_CLASSES = {
-    "h1": "text-4xl font-bold mb-4 text-gray-900 dark:text-gray-100",
-    "h2": "text-3xl font-bold mb-4 text-gray-900 dark:text-gray-100",
-    "h3": "text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100",
-    "h4": "text-xl font-bold mb-4 text-gray-900 dark:text-gray-100",
-    "h5": "text-lg font-bold mb-4 text-gray-900 dark:text-gray-100",
-    "h6": "text-base font-bold mb-4 text-gray-900 dark:text-gray-100",
-    "p": "text-base font-normal mb-4 break-words text-gray-900 dark:text-gray-100",
-    "div": "text-base font-normal mb-4 text-gray-900 dark:text-gray-100",
+    "h1": "text-4xl font-bold mb-4",
+    "h2": "text-3xl font-bold mb-4",
+    "h3": "text-2xl font-bold mb-4",
+    "h4": "text-xl font-bold mb-4",
+    "h5": "text-lg font-bold mb-4",
+    "h6": "text-base font-bold mb-4",
+    "p": "text-base font-normal mb-4 break-words",
+    "div": "text-base font-normal mb-4",
     # special case for preserve_links option
     "a": {
         True: "text-blue-600 underline dark:text-blue-400",
-        False: "text-gray-900 dark:text-gray-100",
+        False: "",
     },
     "ul": "space-y-1 list-disc list-inside mb-4",
     "ol": "space-y-1 list-decimal list-inside mb-4",
-    "li": "ml-4 mb-1 text-gray-900 dark:text-gray-100",
-    "blockquote": "border-l-4 border-gray-300 pl-4 mb-4 italic text-gray-900 dark:text-gray-100",
+    "li": "ml-4 mb-1",
+    "blockquote": "border-l-4 border-gray-300 pl-4 mb-4 italic",
     "pre": "bg-slate-100 p-4 w-full block overflow-x-auto mb-4 font-mono text-sm text-gray-800 dark:text-gray-200 dark:bg-slate-800",
     "code": "bg-slate-100 p-1 inline-block font-mono text-sm text-gray-800 dark:text-gray-200 dark:bg-slate-800",
-    "table": "w-full border-collapse border-2 border-gray-300 mb-4 text-gray-900 dark:text-gray-100 dark:border-gray-700",
+    "table": "w-full border-collapse border-2 border-gray-300 mb-4 dark:border-gray-700",
     "thead": "",
     "tbody": "",
     "tr": "border border-gray-300 bg-white dark:bg-slate-800",

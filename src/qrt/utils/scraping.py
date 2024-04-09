@@ -122,7 +122,7 @@ def externalize_href(href: str, url: str) -> str:
 
 
 def remove_ignored_elements(
-    soup: BeautifulSoup, ignored_elements: list = ELEMENTS_TO_IGNORE
+    soup: BeautifulSoup, ignored_elements: list
 ) -> BeautifulSoup:
     """
     Removes the ignored elements from the soup.
@@ -130,7 +130,7 @@ def remove_ignored_elements(
     The ignored elements are defined in `ELEMENTS_TO_IGNORE` in `qrt.utils.constants`.
     """
     for element in ignored_elements:
-        for tag in soup.find_all(element):
+        for tag in soup.select(element):
             tag.decompose()
 
     return soup

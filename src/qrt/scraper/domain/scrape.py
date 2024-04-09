@@ -37,7 +37,7 @@ async def scrape_url(url: str, options: ScrapingOptions):
 
             elements_to_ignore = ELEMENTS_TO_IGNORE
             if not options.include_images:
-                elements_to_ignore = ELEMENTS_TO_IGNORE + ["img"]
+                elements_to_ignore += ["img"]
             if options.ignore_css_selectors:
                 elements_to_ignore += options.ignore_css_selectors
 
@@ -61,15 +61,12 @@ async def scrape_url(url: str, options: ScrapingOptions):
             content = soup.body.prettify()
 
             clean_html = BeautifulSoup(content, "lxml")
-            clean_html.append(BeautifulSoup(f"<head><title>{title}</title></head>", "lxml"))
+            clean_html.append(
+                BeautifulSoup(f"<head><title>{title}</title></head>", "lxml")
+            )
             clean_html.body["style"] = "margin: 1rem;"
             for tag in clean_html.find_all(recursive=True):
                 tag.attrs.pop("class", None)
-
-            tailwind_html = BeautifulSoup(content, "lxml")
-            tailwind_html.append(BeautifulSoup(f"<head><title>{title}</title><script src='https://cdn.tailwindcss.com'></script></head>", "lxml"))
-            tailwind_html.body["class"] = "m-4"
-            tailwind_html.body.append(BeautifulSoup("<script>if (window.matchMedia('(prefers-color-scheme: dark)').matches) {document.body.classList.add('bg-gray-800')}</script>", "lxml"))
 
             return {
                 "title": title,
@@ -79,14 +76,12 @@ async def scrape_url(url: str, options: ScrapingOptions):
                         "clear": True,
                         "download_markdown": True,
                         "download_clean_html": True,
-                        "download_tailwind_html": True,
                     },
                     "data": {
                         "url": url,
                         "domain": urlparse(url).netloc,
                         "markdown": markdown,
                         "clean_html": clean_html.prettify(),
-                        "tailwind_html": tailwind_html.prettify(),
                     },
                 },
             }

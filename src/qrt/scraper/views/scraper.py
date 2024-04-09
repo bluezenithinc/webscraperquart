@@ -1,4 +1,4 @@
-from quart import render_template, request, session
+from quart import render_template, request, session, make_response, url_for
 from quart.views import MethodView
 
 from qrt.scraper.domain import scrape_url
@@ -25,10 +25,14 @@ class ScraperView(MethodView):
 
         scraped = await scrape_url(url, options)
 
-        return await render_template(
-            "scraper/partials/scraped_content.html",
-            **scraped,
+        response = await make_response(
+            await render_template(
+                "scraper/partials/scraped_content.html",
+                **scraped,
+            )
         )
+        response.headers["HX-Push-Url"] = url_for("scraper.scraper", url=url)
+        return response
 
     async def delete(self):
         return await render_template("scraper/partials/scraped_content.html", extra={})

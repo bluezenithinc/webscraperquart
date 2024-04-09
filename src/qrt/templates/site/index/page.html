@@ -8,15 +8,56 @@
     <div class="flex items-start justify-center">
         <div
             class="w-[1000px] bg-white text-gray-900 shadow-lg rounded-lg px-12 py-8 mt-6 dark:bg-gray-800 dark:text-white">
-            <div class="text-center items-start justify-center">
-                <h2 class="text-2xl font-semibold">Welcome to <strong>QRT</strong> <i class="fa-solid fa-code ms-1"></i>
-                </h2>
-                <p class="mt-4">This is a demo of my web scraping capabilities.</p>
-                <div class="mt-10" hx-boost="true">
-                    <a href="{{ url_for('scraper.scraper') }}"
-                        class="bg-blue-500 hover:bg-blue-700 text-white text-3xl font-bold py-3 px-[100px] rounded dark:bg-blue-700 dark:text-white dark:hover:bg-blue-900">Try
-                        It!</a>
-                </div>
+            <div class="items-start justify-center">
+                <h2 class="text-center text-2xl font-semibold">Welcome to <strong>Grape</strong> <i class="fa-solid fa-code mx-1 me-2"></i>!</h2>
+                <form
+                    class="flex flex-row items-start justify-between mt-6 w-full"
+                    hx-get="{{ url_for('scraper.scraper') }}"
+                    hx-push-url="true"
+                    hx-target="body"
+                    hx-params="url"
+                >
+                    <input
+                        type="text"
+                        id="url"
+                        name="url"
+                        class="w-3/4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2 py-[0.65em] me-2 focus:outline-none focus:ring-blue-500 focus:border-blue-500 placeholder:italic dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Type a URL to scrape"
+                        required
+                    >
+                    <button
+                        type="submit"
+                        class="w-1/4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded dark:bg-blue-700 dark:text-white dark:hover:bg-blue-900"
+                    >
+                        Scrape <i class="fa-solid fa-arrow-right ms-1"></i>
+                    </button>
+                </form>
+                
+                <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+                <h4 class="text-xl font-semibold">What is this?</h4>
+                <p class="text-sm text-gray-600 mb-4 dark:text-gray-400">
+                    Grape is a simple web scraping tool that allows you to scrape content from any website.
+                    It allows you to get the content from the page, including the HTML, text, and images.
+                </p>
+                <h4 class="text-xl font-semibold">How do I use it?</h4>
+                <p class="text-sm text-gray-600 mb-4 dark:text-gray-400">
+                    Simply type the URL of the website you want to scrape and click the "Scrape" button.
+                </p>
+                <h4 class="text-xl font-semibold">What can I do with it?</h4>
+                <p class="text-sm text-gray-600 mb-4 dark:text-gray-400">
+                    You can use it to scrape content from websites for research, data collection, or any other purpose.
+                </p>
+                <h4 class="text-xl font-semibold">Is it free?</h4>
+                <p class="text-sm text-gray-600 mb-4 dark:text-gray-400">
+                    Yes, Grape is free to
+                    use. There are no restrictions on the number of times you can use it or the number of websites you can scrape.
+                </p>
+                <h4 class="text-xl font-semibold">What features does it have?</h4>
+                <p class="text-sm text-gray-600 mb-4 dark:text-gray-400">
+                    Grape allows you to scrape the content of a website, including the HTML, text, and images.
+                    You can decide if you want to preserve links and images in the scraped content.
+                    It allows you to change the user agent and accept language headers for the request.
+                    You can also save the scraped content to a file in HTML or markdown format.
             </div>
         </div>
     </div>

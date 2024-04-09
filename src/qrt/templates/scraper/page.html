@@ -10,14 +10,26 @@
         <div
             class="w-[1000px] bg-white text-gray-800 shadow-lg rounded-lg px-12 py-6 mt-6 dark:bg-gray-800 dark:text-white">
             <form class="flew flex-row justify-between items-center" style="display: flex;"
-                hx-post="{{ url_for('scraper.scraper') }}" hx-trigger="submit" hx-target="#result" hx-swap="innerHTML"
-                hx-ext="json-enc">
-                <input type="text" id="url" name="url"
-                    class="w-3/4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5 me-2 focus:outline-none focus:ring-blue-500 focus:border-blue-500 placeholder:italic dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Enter URL, e.g. https://www.python.org/">
-                <button type="submit"
-                    class="w-1/4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded dark:bg-blue-700 dark:text-white dark:hover:bg-blue-900">Scrape
-                    <i class="fa-solid fa-code ms-1"></i></button>
+                hx-post="{{ url_for('scraper.scraper') }}"
+                hx-target="#result"
+                hx-swap="innerHTML"
+                hx-ext="json-enc"
+            >
+                <input
+                    type="text"
+                    id="url"
+                    name="url"
+                    class="w-3/4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2 py-[0.65em] me-2 focus:outline-none focus:ring-blue-500 focus:border-blue-500 placeholder:italic dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Enter URL, e.g. https://www.python.org/"
+                    value="{{ request.args.url|default('') }}"
+                    required
+                >
+                <button
+                    type="submit"
+                    class="w-1/4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded dark:bg-blue-700 dark:text-white dark:hover:bg-blue-900"
+                >
+                    Scrape <i class="fa-solid fa-code ms-1"></i>
+                </button>
             </form>
             <div class="w-full flex flex-row justify-end items-center">
                 <button type="button" data-drawer-target="options-drawer" data-drawer-show="options-drawer"
