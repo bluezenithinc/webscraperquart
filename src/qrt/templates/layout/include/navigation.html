@@ -1,27 +1,30 @@
-<div class="sticky top-0 w-full h-[60px] bg-slate-800 flex flex-row justify-between dark:bg-slate-800 sticky border-b-2 border-gray-700 dark:border-gray-700" id="navigation"
-    hx-boost="true">
+<div
+    class="sticky top-0 w-full h-[60px] bg-purple-900 flex flex-row justify-between dark:bg-purple-900 sticky border-b-2 border-gray-700 dark:border-gray-700"
+    id="navigation"
+    hx-boost="true"
+>
     <div class="w-1/4 flex flex-row justify-start items-center ms-10">
         <a href="{{ url_for('site.index') }}" class="text-white font-bold text-2xl px-4">
-            Grape <i class="fa-solid fa-code me-1"></i> 
+            GrapeScrape <i class="fa-solid fa-code me-1"></i> 
         </a>
     </div>
     <div class="w-1/2 flex flex-row gap-5 justify-center items-center text-white text-lg font-mono">
         <div
-            class="rounded {% if tab == 'Home'%} border-b-2 border-slate-200 {% endif %} hover:border-b-2 hover:border-slate-500">
+            class="rounded {% if tab == 'Home'%} border-b-2 border-purple-200 {% endif %} hover:border-b-2 hover:border-purple-500">
             <a href="{{ url_for('site.index') }}" class="block mx-4">Home</a>
         </div>
         <div
-            class="rounded {% if tab == 'Scraper'%} border-b-2 border-slate-200 {% endif %} hover:border-b-2 hover:border-slate-500">
+            class="rounded {% if tab == 'Scraper'%} border-b-2 border-purple-200 {% endif %} hover:border-b-2 hover:border-purple-500">
             <a href="{{ url_for('scraper.scraper') }}" class="block mx-4">Scrape</a>
         </div>
         <div
-            class="rounded {% if tab == 'About'%} border-b-2 border-slate-200 {% endif %} hover:border-b-2 hover:border-slate-500">
+            class="rounded {% if tab == 'About'%} border-b-2 border-purple-200 {% endif %} hover:border-b-2 hover:border-purple-500">
             <a href="{{ url_for('site.about') }}" class="block mx-4">About</a>
         </div>
     </div>
     <div class="w-1/4 flex flex-row justify-end items-center me-10">
         <button id="theme" data-tooltip-target="theme-tooltip"
-            class=" w-[40px] h-[40px] rounded-full p-3 bg-transparent hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600 me-4"
+            class=" w-[40px] h-[40px] rounded-full p-3 bg-transparent hover:bg-purple-800 dark:bg-purple-800 dark:hover:bg-purple-800 me-4"
             onclick="toggleTheme()">
             <i class="fas fa-sun text-yellow-500"></i>
         </button>
