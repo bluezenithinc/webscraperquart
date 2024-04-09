@@ -19,7 +19,7 @@
             <input type="checkbox" id="preserveLinks" name="preserveLinks" class="sr-only peer" {% if
                 options.preserve_links %}checked{% endif %}>
             <div
-                class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
+                class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-300 dark:peer-focus:ring-purple-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-purple-600">
             </div>
             <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Preserve Links</span>
         </label>
@@ -32,7 +32,7 @@
             <input type="checkbox" id="includeImages" name="includeImages" class="sr-only peer" {% if
                 options.include_images %}checked{% endif %}>
             <div
-                class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
+                class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-300 dark:peer-focus:ring-purple-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-purple-600">
             </div>
             <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Include Images</span>
         </label>
@@ -45,7 +45,7 @@
     <div class="w-full mb-5">
         <label for="proxy" class="block text-sm font-semibold pb-2">Proxy</label>
         <input id="proxy" name="proxy"
-            class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5 focus:outline-none focus:ring-blue-500 focus:border-blue-500 placeholder:italic dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5 focus:outline-none focus:ring-purple-500 focus:border-purple-500 placeholder:italic dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-purple-500 dark:focus:border-purple-500"
             placeholder="http://username:password@proxy:port" value="{{ options.proxy|default('') }}">
 
         <p class="text-xs text-gray-400 dark:text-gray-500">
@@ -62,12 +62,12 @@
                 onclick="document.getElementById('userAgent').value = navigator.userAgent;">Set to this browser</button>
         </div>
         <textarea rows="3" id="userAgent" name="userAgent"
-            class="w-full bg-gray-50 font-mono border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5 focus:outline-none focus:ring-blue-500 focus:border-blue-500 placeholder:italic dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            class="w-full bg-gray-50 font-mono border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5 focus:outline-none focus:ring-purple-500 focus:border-purple-500 placeholder:italic dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-purple-500 dark:focus:border-purple-500"
             placeholder="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3">{{ options.user_agent }}</textarea>
 
         <p class="text-xs text-gray-400 dark:text-gray-500">
             The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent" target="_blank"
-                class="text-blue-400 hover:text-blue-500 hover:underline dark:text-blue-400 dark:hover:text-blue-600">User-Agent</a>
+                class="text-purple-500 hover:text-purple-600 hover:underline dark:text-purple-400 dark:hover:text-purple-500">User-Agent</a>
             request header contains a characteristic string that allows the network protocol peers to identify the
             application type,
             operating system, software vendor, or software version of the requesting software user agent.
@@ -83,12 +83,12 @@
                 locale</button>
         </div>
         <input id="preferredLanguage" name="preferredLanguage"
-            class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5 focus:outline-none focus:ring-blue-500 focus:border-blue-500 placeholder:italic dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5 focus:outline-none focus:ring-purple-500 focus:border-purple-500 placeholder:italic dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-purple-500 dark:focus:border-purple-500"
             placeholder="en-US,en;q=0.9" value="{{ options.preferred_language }}">
 
         <p class="text-xs text-gray-400 dark:text-gray-500">
             The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Language" target="_blank"
-                class="text-blue-400 hover:text-blue-500 hover:underline dark:text-blue-400 dark:hover:text-blue-600">Accept-Language</a>
+                class="text-purple-500 hover:text-purple-600 hover:underline dark:text-purple-400 dark:hover:text-purple-500">Accept-Language</a>
             request HTTP header advertises which languages the client is able to understand, and which locale variant is
             preferred.
         </p>
@@ -102,7 +102,7 @@
                 onclick="document.getElementById('ignoreCssSelectors').value = '';">Clear</button>
         </div>
         <textarea rows="3" id="ignoreCssSelectors" name="ignoreCssSelectors"
-            class="w-full bg-gray-50 font-mono border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5 focus:outline-none focus:ring-blue-500 focus:border-blue-500 placeholder:italic dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            class="w-full bg-gray-50 font-mono border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5 focus:outline-none focus:ring-purple-500 focus:border-purple-500 placeholder:italic dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-purple-500 dark:focus:border-purple-500"
             placeholder=".do-not-print\n.cookie-banner">{{ options.ignore_css_selectors|join('\n') }}</textarea>
 
         <p class="text-xs text-gray-400 dark:text-gray-500">
@@ -112,7 +112,7 @@
 
     <div class="w-full mb-5">
         <button type="submit" data-drawer-hide="options-drawer"
-            class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded dark:bg-blue-700 dark:text-white dark:hover:bg-blue-900">Save
+            class="w-full bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded dark:bg-purple-700 dark:text-white dark:hover:bg-purple-900">Save
             <i class="fa-solid fa-floppy-disk ms-1"></i></button>
     </div>
 </form>
