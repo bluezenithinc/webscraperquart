@@ -13,6 +13,7 @@
                 hx-post="{{ url_for('scraper.scraper') }}"
                 hx-target="#result"
                 hx-swap="innerHTML"
+                hx-indicator=".progress"
                 hx-ext="json-enc"
             >
                 <input

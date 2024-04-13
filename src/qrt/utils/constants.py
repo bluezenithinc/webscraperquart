@@ -59,6 +59,8 @@ ELEMENTS_TO_IGNORE = [
     "#nav",
     "#navbar",
     "#navigation",
+    ".comments",
+    "#comments",
     ############################################################
     #######   cookies
     ".cookie",

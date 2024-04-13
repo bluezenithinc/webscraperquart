@@ -23,7 +23,11 @@ class OptionsView(MethodView):
                 payload[option] = payload.get(option) == "on"
 
             if option == "ignoreCssSelectors":
-                payload[option] = payload.get(option, "").split(",")
+                payload[option] = [
+                    selector
+                    for selector in payload.get(option, "").split(",")
+                    if selector
+                ]
 
         options = ScrapingOptions(session).update(**payload)
         session["options"] = options.serialize()

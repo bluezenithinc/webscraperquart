@@ -11,15 +11,24 @@
     <div class="w-1/2 flex flex-row gap-5 justify-center items-center text-white text-lg font-mono">
         <div
             class="rounded {% if tab == 'Home'%} border-b-2 border-purple-200 {% endif %} hover:border-b-2 hover:border-purple-500">
-            <a href="{{ url_for('site.index') }}" class="block mx-4">Home</a>
+            <a
+                href="{{ url_for('site.index') }}"
+                class="block px-4"
+            >Home</a>
         </div>
         <div
             class="rounded {% if tab == 'Scraper'%} border-b-2 border-purple-200 {% endif %} hover:border-b-2 hover:border-purple-500">
-            <a href="{{ url_for('scraper.scraper') }}" class="block mx-4">Scrape</a>
+            <a
+                href="{{ url_for('scraper.scraper') }}"
+                class="block px-4"
+            >Scrape</a>
         </div>
         <div
             class="rounded {% if tab == 'About'%} border-b-2 border-purple-200 {% endif %} hover:border-b-2 hover:border-purple-500">
-            <a href="{{ url_for('site.about') }}" class="block mx-4">About</a>
+            <a
+                href="{{ url_for('site.about') }}"
+                class="block px-4"
+            >About</a>
         </div>
     </div>
     <div class="w-1/4 flex flex-row justify-end items-center me-10">
